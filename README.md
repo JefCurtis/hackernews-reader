@@ -65,3 +65,5 @@ with some work to be done and it's compiled here:
 - While infinite scrolling works well and allows for stories to be painted to the page as soon as they are
   fetched, sadly the limit is 500 of the most recent stories. Understand how the Hacker News API handles
   pagination and implementing a true infinte story reading feature would be a great improvement.
+- It seems the app doesn't register the service workers and cache fetch request. Unclear on why this is
+  behaving differently in Firefox. MOAR testing needed!
