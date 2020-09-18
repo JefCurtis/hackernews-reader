@@ -1,3 +1,3 @@
-export { useStories } from "./useStories";
-export { useRegisterServiceWorkers } from "./useRegisterServiceWorkers";
-export { useInfiniteScrolling } from "./useInfiniteScrolling";
+export { useStories } from "./use-stories";
+export { useRegisterServiceWorkers } from "./use-register-service-workers";
+export { useInfiniteScrolling } from "./use-infinite-scrolling";
