@@ -1,6 +1,4 @@
-A simple Hacker News reader clone.</br>
-
-Written using React and TypeScript.
+A simple Hacker News reader clone written using React and TypeScript.
 
 ### Getting started
 
