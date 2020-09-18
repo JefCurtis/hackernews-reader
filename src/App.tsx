@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useInfiniteScrolling, useStories, useRegisterServiceWorkers } from "./common/hooks";
+import { StoryList, Loader, EndOfList, Header, Offline } from "./common/component";
+import "./app.scss";
 
-function App() {
+const App = () => {
+  const serviceWorkersReady = useRegisterServiceWorkers();
+  const { loading, hasMoreStories, stories, setCurrentPage, isOffline } = useStories(serviceWorkersReady);
+
+  const setNextPage = () => {
+    setCurrentPage((prevPageNumber) => prevPageNumber + 1);
+  };
+
+  const loadingRef = useInfiniteScrolling(loading, setNextPage);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header></Header>
+      {stories.length > 0 && (
+        <>
+          <StoryList stories={stories}></StoryList>
+          {!loading && hasMoreStories && <Loader reference={loadingRef}></Loader>}
+          {!hasMoreStories && <EndOfList></EndOfList>}
+        </>
+      )}
+      {isOffline && <Offline></Offline>}
     </div>
   );
-}
+};
 
-export default App;
+export { App };

@@ -1,0 +1,13 @@
+.story-item {
+  list-style-type: decimal;
+  margin-bottom: 5px;
+
+  .subtext {
+    font-size: 10px;
+    
+    span {
+      padding-right: 5px;
+
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+.app {
+  width: 85%;
+  margin: auto;
+  background-color: $story-container-color;
+  border-bottom: $hacker-news-orange 2px solid;
+  padding-bottom: 15px;
+
+}
